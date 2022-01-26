@@ -1,0 +1,85 @@
+# custom system config
+custom:
+  # 登录模式
+  loginMode: #
+  # 开发模式
+  devMode: #
+  # 项目常量设定
+  common:
+    # uploadPath: /static/upload/prodImages 对应tomcat下
+    uploadPath: /static/upload/rubbishImages # 对应根目录下
+
+# springboot config
+server:
+  # 服务器的HTTP端口，默认为80
+  port: 8080
+  servlet:
+    # 应用的访问路径(指定访问前缀)
+    context-path: /rc-server
+
+# spring config
+spring:
+  # datasource config
+  datasource:
+    url: jdbc:mysql://81.71.48.35:3306/rubbish_classify?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: rc_user
+    password: rc_user
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  # devtools config
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/** # WEB-INF下的文件内容修改不重启
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  # 配置文件(开发版本-配置文件激活)
+  profiles:
+    active: dev
+  # 静态资源文件映射
+  mvc:
+    static-path-pattern: /static/**
+
+# mybatis config
+mybatis-plus:
+  # MP-Mapper所对应的XML文件位置
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  # MP-别名包扫描路径,通过该属性可以给包中的类注册别名 实体扫描,多个package用逗号或者分号分隔
+  type-aliases-package: com.rc.**.model
+  # MP-配置扫描通用枚举 # 支持统配符 * 或者 ; 分割
+  # type-enums-package: com.abbottliu.sys.enums,com.abbottliu.enums
+  # 启动时是否检查XML文件的存在，默认不检查
+  check-config-location: false
+
+  #  ExecutorType.SIMPLE：该执行器类型不做特殊的事情，为每个语句的执行创建一个新的预处理语句（PreparedStatement）
+  #  ExecutorType.REUSE：该执行器类型会复用预处理语句（PreparedStatement）
+  #  ExecutorType.BATCH：该执行器类型会批量执行所有的更新语句
+  executor-type: simple
+
+  configuration:
+    # 是否开启自动驼峰命名规则（camel case）映射
+    map-underscore-to-camel-case: true
+    # 配置JdbcTypeForNull, oracle数据库必须配置
+    jdbc-type-for-null: null
+    # 如果查询结果中包含空值的列,则MP在映射的时候不会映射这个字段
+    call-setters-on-nulls: true
+    # 打印sql执行语句(配置控制台打印完整带参数SQL语句)
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  global-config:
+    db-config:
+      #主键类型  auto:"数据库ID自增" 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      id-type: UUID
+      #字段策略 IGNORED:"忽略判断"  NOT_NULL:"非 NULL 判断")  NOT_EMPTY:"非空判断"
+      # field-strategy: NOT_EMPTY
+      # 数据库类型,默认值为未知的数据库类型
+      # db-type: MYSQL
+      # 逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      # 驼峰下划线转换
+      table-underline: true
+    banner: false

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp_10"
+        app:cardElevation="@dimen/dp_4"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/dp_10">
+
+
+        <!--        个人资料 -->
+        <include layout="@layout/setting_user_info" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_60"
+        android:orientation="vertical">
+
+        <include layout="@layout/divider_small" />
+
+        <LinearLayout
+            android:id="@+id/ver"
+            style="@style/ItemContainer">
+
+            <com.rc.view.FontIconView
+                style="@style/ItemIcon"
+                android:text="@string/fi_me_ver" />
+
+            <TextView
+                style="@style/ItemTextLarge"
+                android:text="@string/setting_fun_ver_update"
+                android:textColor="@color/text_grey" />
+        </LinearLayout>
+
+        <include layout="@layout/divider_small" />
+
+        <LinearLayout
+            android:id="@+id/theme"
+            style="@style/ItemContainer">
+
+            <com.rc.view.FontIconView
+                style="@style/ItemIcon"
+                android:text="@string/fi_me_theme" />
+
+            <TextView
+                style="@style/ItemTextLarge"
+                android:text="@string/setting_fun_theme"
+                android:textColor="@color/text_grey" />
+
+            <LinearLayout
+
+                style="@style/ItemContainerLarge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/theme_1"
+                    style="@style/ItemTextLarge"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@color/main_color_1"
+                    android:orientation="horizontal"></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/theme_2"
+                    style="@style/ItemTextLarge"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@color/main_color_2"
+                    android:orientation="horizontal" />
+
+                <LinearLayout
+                    android:id="@+id/theme_3"
+                    style="@style/ItemTextLarge"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@color/main_color_3"
+                    android:orientation="horizontal"></LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/theme_4"
+                    style="@style/ItemTextLarge"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@color/main_color_4"
+                    android:orientation="horizontal"></LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/divider_small" />
+
+        <LinearLayout
+            android:id="@+id/settings"
+            style="@style/ItemContainer">
+
+            <com.rc.view.FontIconView
+                style="@style/ItemIcon"
+                android:text="@string/fi_app_settings" />
+
+            <TextView
+                style="@style/ItemTextLarge"
+                android:text="@string/setting_fun_user_info"
+                android:textColor="@color/text_grey" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/logout"
+            style="@style/ItemContainer">
+
+            <com.rc.view.FontIconView
+                style="@style/ItemIcon"
+                android:text="@string/fi_app_exit" />
+
+            <TextView
+                style="@style/ItemTextLarge"
+                android:id="@+id/tv_logout"
+                android:text="@string/setting_fun_logout"
+                android:textColor="@color/text_grey" />
+        </LinearLayout>
+        <include layout="@layout/divider_small" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dimen_60"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+</LinearLayout>

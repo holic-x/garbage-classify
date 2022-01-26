@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--TOP菜单 stat-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/nav_spacing_4dp"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/nav_spacing_4dp"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/ItemContainerLargeV">
+
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIconSmall"
+                    android:text="@string/fi_home_station_alms"
+                    android:textColor="@color/colorIcon_styl_01" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:layout_gravity="center"
+                    android:text="@string/home_station_alms" />
+
+                <TextView
+                    android:id="@+id/alarms_num"
+                    style="@style/ItemTextSmall"
+                    android:layout_gravity="center"
+                    android:text="30"
+                    android:textColor="@color/main_color" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIconSmall"
+                    android:text="@string/fi_home_station_order"
+                    android:textColor="@color/colorIcon_styl_01" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:layout_gravity="center"
+                    android:text="@string/home_station_order" />
+
+                <TextView
+                    android:id="@+id/orders_num"
+                    style="@style/ItemTextSmall"
+                    android:layout_gravity="center"
+                    android:text="3"
+                    android:textColor="@color/main_color" />
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIconSmall"
+                    android:text="@string/fi_home_station_num"
+                    android:textColor="@color/colorIcon_styl_01" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:layout_gravity="center"
+                    android:text="@string/home_station_num" />
+
+                <TextView
+                    android:id="@+id/stations_num"
+                    style="@style/ItemTextSmall"
+                    android:layout_gravity="center"
+                    android:text="6"
+                    android:textColor="@color/main_color" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/divider_large" />
+
+    </LinearLayout>
+    <!--TOP菜单 end-->
+
+    <!--菜单 start-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_top_fill"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/home_stations_list"
+                style="@style/ItemContainerLargeV">
+
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_stations_list"
+                    android:textColor="@color/colorIcon_styl_03" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_stations_list" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_stations_pos"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_stations_pos"
+                    android:textColor="@color/colorIcon_styl_03" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_stations_pos" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_stations_energy"
+                style="@style/ItemContainerLargeV">
+
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_stations_energy"
+                    android:textColor="@color/colorIcon_styl_02" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_stations_energy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_stations_toltal_energy"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_stations_toltal_energy"
+                    android:textColor="@color/colorIcon_styl_02" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_stations_toltal_energy" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_top_fill"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/home_notice"
+                style="@style/ItemContainerLargeV">
+
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fi_home_notice"
+                    android:textColor="@color/colorIcon_styl_04" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_notice" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_safe_energy"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_safe_energy"
+                    android:textColor="@color/colorIcon_styl_04" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_safe_energy" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_manage"
+                style="@style/ItemContainerLargeV">
+
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_manage"
+                    android:textColor="@color/colorIcon_styl_03" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_manage" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/home_more"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_more"
+                    android:textColor="@color/text_grey" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/home_more" />
+            </LinearLayout>
+
+        </LinearLayout>
+        -->
+
+    </LinearLayout>
+
+    <include layout="@layout/divider_large" />
+
+    <!--   垃圾分类相关 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/home_top_fill"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/recycled_rubbish"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    android:id="@+id/recycled_rubbish_icon"
+                    style="@style/ItemMenuIcon"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fi_me_theme"
+                    android:textColor="@color/colorIcon_styl_04" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/recycled_rubbish" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/harmful_rubbish"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    android:id="@+id/harmful_rubbish_icon"
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_company_web"
+                    android:textColor="@color/colorIcon_styl_02" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/harmful_rubbish" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/kitchen_waste_rubbish"
+                style="@style/ItemContainerLargeV">
+
+
+                <com.rc.view.FontIconView
+                    android:id="@+id/kitchen_waste_rubbish_icon"
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_station_alms"
+                    android:textColor="@color/colorIcon_styl_03" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/kitchen_waste_rubbish" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/other_rubbish"
+                style="@style/ItemContainerLargeV">
+
+                <com.rc.view.FontIconView
+                    android:id="@+id/other_rubbish_icon"
+                    style="@style/ItemMenuIcon"
+                    android:text="@string/fi_home_more"
+                    android:textColor="@color/text_grey" />
+
+                <TextView
+                    style="@style/ItemTextSmall"
+                    android:text="@string/other_rubbish" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <include layout="@layout/divider_large" />
+
+    </LinearLayout>
+
+
+    <include layout="@layout/divider_large" />
+
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true" />
+
+
+    <!--<ScrollView-->
+    <!--android:id="@+id/scrollview"-->
+    <!--android:scrollbars="none"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1">-->
+
+    <!---->
+
+    <!--&lt;!&ndash;底部线 stat&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp_48"-->
+    <!--android:gravity="center">-->
+    <!--<View-->
+    <!--android:layout_width="@dimen/dp_60"-->
+    <!--android:layout_height="@dimen/small_divider"-->
+    <!--android:background="@color/divider_color">-->
+    <!--</View>-->
+    <!--<TextView-->
+    <!--style="@style/ItemTextLarge"-->
+    <!--android:text="@string/bottomText"-->
+    <!--android:textColor = "@color/text_grey"/>-->
+    <!--<View-->
+    <!--android:layout_width="@dimen/dp_60"-->
+    <!--android:layout_height="@dimen/small_divider"-->
+    <!--android:background="@color/divider_color">-->
+
+    <!--</View>-->
+
+    <!--</LinearLayout>-->
+    <!--&lt;!&ndash;底部线 end&ndash;&gt;-->
+
+
+    <!--</ScrollView>-->
+
+</LinearLayout>

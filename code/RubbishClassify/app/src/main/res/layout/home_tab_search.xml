@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--TOP菜单 stat-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/activity_margin"
+            android:layout_marginTop="@dimen/nav_spacing_4dp"
+            android:layout_marginRight="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/nav_spacing_4dp"
+            android:clickable="true"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/ItemContainerLargeV">
+
+                <SearchView
+                    android:id="@+id/searchViewBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:ignore="InvalidId" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/divider_large" />
+
+
+<!--        自定义动态标签展示区域 -->
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+        </HorizontalScrollView>
+
+<!--        垃圾详情展示 -->
+        <include layout="@layout/divider_large" />
+
+        <ListView
+            android:id="@+id/searchListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true" />
+
+
+
+
+    </LinearLayout>
+
+    <include layout="@layout/divider_large" />
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:clickable="true" />
+
+    <!--<ScrollView-->
+    <!--android:id="@+id/scrollview"-->
+    <!--android:scrollbars="none"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1">-->
+
+    <!---->
+
+    <!--&lt;!&ndash;底部线 stat&ndash;&gt;-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="@dimen/dp_48"-->
+    <!--android:gravity="center">-->
+    <!--<View-->
+    <!--android:layout_width="@dimen/dp_60"-->
+    <!--android:layout_height="@dimen/small_divider"-->
+    <!--android:background="@color/divider_color">-->
+    <!--</View>-->
+    <!--<TextView-->
+    <!--style="@style/ItemTextLarge"-->
+    <!--android:text="@string/bottomText"-->
+    <!--android:textColor = "@color/text_grey"/>-->
+    <!--<View-->
+    <!--android:layout_width="@dimen/dp_60"-->
+    <!--android:layout_height="@dimen/small_divider"-->
+    <!--android:background="@color/divider_color">-->
+
+    <!--</View>-->
+
+    <!--</LinearLayout>-->
+    <!--&lt;!&ndash;底部线 end&ndash;&gt;-->
+
+
+    <!--</ScrollView>-->
+
+</LinearLayout>

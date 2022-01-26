@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rc.server.modules.dataManage.mapper.RubbishMapper">
+
+
+    <sql id="selectRubbishVo">
+        select
+          rub.rubbish_id "rubbishId",
+          rub.rubbish_code "rubbishCode",
+          rub.rubbish_name "rubbishName",
+          rub.classify_id "classifyId",
+          rc.classify_code "classifyCode",
+          rc.classify_name "classifyName",
+          rub.rubbish_pic "rubbishPic",
+          rub.remark "remark",
+          rub.create_time "createTime",
+          rub.modify_time "modify_time"
+        from rc_rubbish rub
+        left join rc_classify rc on rc.classify_id  = rub.classify_id
+    </sql>
+
+    <select id="getById" resultType="com.rc.server.modules.dataManage.model.Rubbish">
+        select *
+        from rc_rubbish rub
+        where rub.rubbish_id = #{rubbishId}
+    </select>
+
+    <select id="getByClassifyId" resultType="com.rc.server.modules.dataManage.domain.vo.RubbishVO">
+        <include refid="selectRubbishVo"/>
+        where rub.classify_id = #{classifyId}
+    </select>
+
+    <select id="getByCond" parameterType="com.alibaba.fastjson.JSONObject"
+            resultType="com.rc.server.modules.dataManage.domain.vo.RubbishVO">
+        <include refid="selectRubbishVo"/>
+        where 1=1
+        <if test="queryCond!= null">
+            <if test="queryCond.rubbishName != null and queryCond.rubbishName != ''">
+                and rub.rubbish_name = #{queryCond.rubbishName}
+            </if>
+            <if test="queryCond.classifyId != null and queryCond.classifyId != ''">
+                and rub.classify_id = #{queryCond.classifyId}
+            </if>
+            <if test="queryCond.keyword != null and queryCond.keyword != ''">
+                and (rub.rubbish_code like concat('%',#{queryCond.keyword},'%') or rub.rubbish_name like concat('%',#{queryCond.keyword},'%'))
+            </if>
+        </if>
+        order by rub.rubbish_name
+    </select>
+
+
+    <select id="getByPage" parameterType="com.alibaba.fastjson.JSONObject"
+            resultType="com.rc.server.modules.dataManage.domain.vo.RubbishVO">
+        <include refid="selectRubbishVo"/>
+        where 1=1
+        <if test="queryCond!= null">
+            <if test="queryCond.rubbishName != null and queryCond.rubbishName != ''">
+                and rub.rubbish_name = #{queryCond.rubbishName}
+            </if>
+            <if test="queryCond.classifyId != null and queryCond.classifyId != ''">
+                and rub.classify_id = #{queryCond.classifyId}
+            </if>
+        </if>
+        order by rub.rubbish_name
+    </select>
+
+</mapper>

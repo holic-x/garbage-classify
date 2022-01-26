@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rc.server.modules.dataManage.mapper.ClassifyMapper">
+
+
+    <sql id="selectClassifyVo">
+        select *
+        from rc_classify rc
+    </sql>
+
+
+    <select id="getById" resultType="com.rc.server.modules.dataManage.model.Classify">
+        <include refid="selectClassifyVo"/>
+        where rc.classify_id = #{classifyId}
+    </select>
+
+    <select id="getByCode" resultType="com.rc.server.modules.dataManage.model.Classify">
+        <include refid="selectClassifyVo"/>
+        where rc.classify_code = #{classifyCode}
+    </select>
+
+    <select id="getByName" resultType="com.rc.server.modules.dataManage.model.Classify">
+        <include refid="selectClassifyVo"/>
+        where rc.classify_name = #{classifyName}
+    </select>
+
+    <select id="getByCond" parameterType="com.alibaba.fastjson.JSONObject"
+            resultType="com.rc.server.modules.dataManage.model.Classify">
+        <include refid="selectClassifyVo"/>
+        <if test="queryCond!= null">
+            <if test="queryCond.classifyCode != null and queryCond.classifyCode != ''">
+                and rc.classify_code = #{queryCond.classifyCode}
+            </if>
+            <if test="queryCond.classifyName != null and queryCond.classifyName != ''">
+                and rc.classify_name = #{queryCond.classifyName}
+            </if>
+        </if>
+        order by rc.classify_code
+    </select>
+
+
+    <select id="getByPage" parameterType="com.alibaba.fastjson.JSONObject"
+            resultType="com.rc.server.modules.dataManage.model.Classify">
+        <include refid="selectClassifyVo"/>
+        <if test="queryCond!= null">
+            <if test="queryCond.keyword != null and queryCond.keyword != ''">
+                and (rc.classify_code like concat('%',#{queryCond.keyword},'%') or  rc.classify_name like concat('%',#{queryCond.keyword},'%'))
+            </if>
+        </if>
+        order by rc.classify_code
+    </select>
+
+</mapper>

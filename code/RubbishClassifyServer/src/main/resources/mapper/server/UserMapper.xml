@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rc.server.modules.systemManage.mapper.UserMapper">
+
+
+    <sql id="selectUserVo">
+        select *
+        from rc_user ru
+    </sql>
+
+
+    <select id="getById" resultType="com.rc.server.modules.systemManage.model.RcUser">
+        <include refid="selectUserVo"/>
+        where ru.user_id = #{userId}
+    </select>
+
+    <select id="getByName" resultType="com.rc.server.modules.systemManage.model.RcUser">
+        <include refid="selectUserVo"/>
+        where ru.user_name = #{userName}
+    </select>
+
+    <select id="getByLoginProp" resultType="com.rc.server.modules.systemManage.model.RcUser">
+        <include refid="selectUserVo"/>
+        where ru.user_name = #{userName} and ru.user_pwd = #{userPwd} and ru.user_role = #{userRole}
+    </select>
+
+    <select id="getByCond" parameterType="com.alibaba.fastjson.JSONObject"
+            resultType="com.rc.server.modules.systemManage.model.RcUser">
+        <include refid="selectUserVo"/>
+        where 1=1
+        <if test="queryCond!= null">
+            <if test="queryCond.userName != null and queryCond.userName != ''">
+                and ru.user_name = #{queryCond.userName}
+            </if>
+            <if test="queryCond.userRole != null and queryCond.userRole != ''">
+                and ru.user_role = #{queryCond.userRole}
+            </if>
+        </if>
+        order by ru.user_name
+    </select>
+
+
+    <select id="getByPage" parameterType="com.alibaba.fastjson.JSONObject"
+            resultType="com.rc.server.modules.systemManage.model.RcUser">
+        <include refid="selectUserVo"/>
+        where 1=1
+        <if test="queryCond!= null">
+            <if test="queryCond.userName != null and queryCond.userName != ''">
+                and ru.user_name = #{queryCond.userName}
+            </if>
+            <if test="queryCond.userRole != null and queryCond.userRole != ''">
+                and ru.user_type = #{queryCond.userRole}
+            </if>
+        </if>
+        order by ru.user_name
+    </select>
+
+
+</mapper>
